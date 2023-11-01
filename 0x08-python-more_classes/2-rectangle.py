@@ -1,52 +1,52 @@
 #!/usr/bin/python3
-"""Defines a Rect"""
+"""Defines a Rect."""
 
 
 class Rectangle:
-    """Represent  rect."""
+    """Represent a rect."""
 
-    def __init__(self, w=0, h=0):
+    def __init__(self, width=0, height=0):
         """Initialize Rect.
 
         Args:
-            w (int):w.
-            h (int):h.
+            width (int): width
+            height (int): height.
         """
-        self.w = w
-        self.h = h
+        self.width = width
+        self.height = height
 
     @property
-    def w(self):
-        """Get/set  width"""
-        return self.__w
+    def width(self):
+        """Get/set width."""
+        return self.__width
 
-    @w.setter
-    def w(self, value):
+    @width.setter
+    def width(self, value):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__w = value
+        self.__width = value
 
     @property
-    def h(self):
+    def height(self):
         """Get/set height."""
-        return self.__h
+        return self.__height
 
-    @h.setter
-    def h(self, value):
+    @height.setter
+    def height(self, value):
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__h = value
+        self.__height = value
 
     def area(self):
-        """Return area Rect."""
-        return (self.__w * self.__h)
+        """Return area."""
+        return (self.__width * self.__height)
 
     def perimeter(self):
-        """Return  perimeter."""
-        if self.__w == 0 or self.__h == 0:
+        """Return  perimeter ."""
+        if self.__width == 0 or self.__height == 0:
             return (0)
-        return ((self.__w * 2) + (self.__h * 2))
+        return ((self.__width * 2) + (self.__height * 2))
