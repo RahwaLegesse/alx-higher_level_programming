@@ -1,108 +1,126 @@
-The ``0-add_integer`` module
-============================
+# 0-add_integer.txt
 
-Using ``add_integer``
-----------------------
+===========================
+How to Use 0-add_integer.py
+===========================
 
-Test for one argument:
+This module defines an integer addition function ``add_integer(a, b=98)``.
 
-    >>> add_integer(1)
-    99
+Usage
+=====
 
-Test for one argument:
+``add_integer(...)``` returns the addition of its two arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
 
-    >>> add_integer(0)
-    98
+::
 
-Test for float:
-
-    >>> add_integer(100.9)
-    198
-
-Test for negeative number:
-
-    >>> add_integer(-98.5)
-    0
-
-Test two numbers:
-
-    >>> add_integer(1, 4)
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(2, 3)
     5
 
-Test for two large numbers:
+::
 
-    >>> add_integer(999999998, 999999999)
-    1999999997
+    >>> add_integer(2, -3)
+    -1
 
-Test for positive and negative numbers:
+The function also works with floating-point values.
 
-    >>> add_integer(34263478, -89234582395)
-    -89200318917
+::
 
-Test negative and positive numbers:
+    >>> add_integer(2.0, 3.0)
+    5
 
-    >>> add_integer(-13947692, 57234)
-    -13890458
+Note that floats are casted to ints before addition is performed.
 
-Test an integer and a float number:
+::
 
-    >>> add_integer(123, 7.987)
-    130
+    >>> add_integer(2.9, 0.2)
+    2
 
-Test a float and an integer:
+::
 
-    >>> add_integer(234234.43545, 4352345)
-    4586579
+    >>> add_integer(-2.9, -0.2)
+    -2
 
-Test two floats:
+Floating and non-floating point values can be combined.
 
-    >>> add_integer(0.9, 0.9)
-    0
+::
 
-Add infinity:
+    >>> add_integer(2.3, -3)
+    -1
 
-    >>> add_integer(float('inf'), float('-inf'))
+The second argument is optional - by default, it is 98.
+
+::
+
+    >>> add_integer(2)
+    100
+
+Non-Numbers
+===========
+
+``add_integer()`` expects that both arguments are either integers or floats.
+If either argument is a non-integer and non-float, a TypeError is raised:
+
+::
+
+    >>> add_integer("hello", 3)
     Traceback (most recent call last):
-    ...
-    OverflowError: cannot convert float infinity to integer
-
-Add nan:
-
-    >>> add_integer(0, float('nan'))
-    Traceback (most recent call last):
-    ...
-    ValueError: cannot convert float NaN to integer
-
-Test first arg invalid:
-
-    >>> add_integer("foo", 0)
-    Traceback (most recent call last):
-        ...
     TypeError: a must be an integer
 
-Test second arg invalid:
+::
 
-    >>> add_integer(123123, [])
+    >>> add_integer(2, "hello")
     Traceback (most recent call last):
-        ...
     TypeError: b must be an integer
 
-Test both args invalid:
+::
 
-    >>> add_integer(None, None)
+    >>> add_integer(None)
     Traceback (most recent call last):
-        ...
     TypeError: a must be an integer
 
-Test two strings:
+::
 
-    >>> add_integer("foo", "bar")
+    >>> add_integer(2.3, None)
     Traceback (most recent call last):
-        ...
+    TypeError: b must be an integer
+
+If both arguments are non-integers and non-floats, a TypeError message is only
+printed for the first argument.
+
+::
+
+    >>> add_integer("hello", "there")
+    Traceback (most recent call last):
     TypeError: a must be an integer
 
-Test float overflow:
-    >>> add_integer(float('inf'), 0)
+The function will fail if infinity is provided.
+
+::
+
+    >>> add_integer(float('inf'))
     Traceback (most recent call last):
-    ...
     OverflowError: cannot convert float infinity to integer
+     
+
+::
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+And again with NaN numbers.
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
