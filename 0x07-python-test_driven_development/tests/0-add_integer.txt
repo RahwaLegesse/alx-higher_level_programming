@@ -7,7 +7,8 @@ Using ``add_integer``
 Import function from module:
 
     >>> add_integer = __import__('0-add_integer').add_integer
-Test for one argument:
+
+Test for one para:
 
     >>> add_integer(1)
     99
