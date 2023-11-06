@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Function for class"""
+""""Defines a class""
 def lookup(obj):
-    """Prints directory"""
+    """Return directory"""
     return (dir(obj))
