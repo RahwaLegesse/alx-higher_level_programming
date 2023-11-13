@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-"""Represents a square of the class."""
+"""Defines given square class."""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Represents class of the square."""
+    """Represent square class."""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialize the new class of square.
+        """Initialize a new Square.
 
         Args:
-            size (int): Square size.
-            x (int): x value.
-            y (int): y value.
+            size (int): Size.
+            x (int): x.
+            y (int): y.
             id (int): id.
         """
         super().__init__(size, size, x, y, id)
@@ -28,45 +28,45 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Update the inherited new class of Square.
+        """Update the Square.
 
         Args:
-            *args (ints): given vaues.
-                - 1st parameter represents id
-                - 2nd parameter represents size
-                - 3rd parameter represents x
-                - 4th parameter represents y
-            **kwargs (dict): with the key and theier respective values.
+            *args (ints): New attribute.
+                - 1st argument represents id
+                - 2nd argument represents size
+                - 3rd argument represents x
+                - 4th argument represents y
+            **kwargs (dict): New key/value.
         """
         if args and len(args) != 0:
-            index = 0
+            a = 0
             for arg in args:
-                if index == 0:
+                if a == 0:
                     if arg is None:
                         self.__init__(self.size, self.x, self.y)
                     else:
                         self.id = arg
-                elif index == 1:
+                elif a == 1:
                     self.size = arg
-                elif index == 2:
+                elif a == 2:
                     self.x = arg
-                elif index == 3:
+                elif a == 3:
                     self.y = arg
-                index += 1
+                a += 1
 
         elif kwargs and len(kwargs) != 0:
-            for ke, val in kwargs.items():
-                if ke == "id":
-                    if val is None:
+            for k, v in kwargs.items():
+                if k == "id":
+                    if v is None:
                         self.__init__(self.size, self.x, self.y)
                     else:
-                        self.id = val
-                elif ke == "size":
-                    self.size = val
-                elif ke == "x":
-                    self.x = val
-                elif ke == "y":
-                    self.y = val
+                        self.id = v
+                elif k == "size":
+                    self.size = v
+                elif k == "x":
+                    self.x = v
+                elif k == "y":
+                    self.y = v
 
     def to_dictionary(self):
         """Return dictionary."""

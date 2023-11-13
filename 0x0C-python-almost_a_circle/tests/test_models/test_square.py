@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-# test_square.py
-# Brennan D Baraban <375@holbertonschool.com>
+#test_square.py
 """Defines unittests for models/square.py.
 
 Unittest classes:
@@ -320,7 +319,7 @@ class TestSquare_order_of_initialization(unittest.TestCase):
 
 
 class TestSquare_area(unittest.TestCase):
-    """Unittests for testing the area method of the Square class."""
+    """Unittests to test for the area method of the Square class."""
 
     def test_area_small(self):
         self.assertEqual(100, Square(10, 0, 0, 1).area())
@@ -345,13 +344,13 @@ class TestSquare_stdout(unittest.TestCase):
 
     @staticmethod
     def capture_stdout(sq, method):
-        """Captures text printed to stdout.
+        """Captures printed to stdout.
 
         Args:
-            sq (Square): Square to stdout.
-            method (str): method.
+            sq (Square): Square.
+            method (str): Method.
         Returns:
-            The text to print.
+            The text printed to stdout by calling method on sq.
         """
         capture = io.StringIO()
         sys.stdout = capture

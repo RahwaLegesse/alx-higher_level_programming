@@ -1,27 +1,27 @@
 #!/usr/bin/python3
 
-"""Represent for base class."""
+"""Defines base class."""
 import json
 import csv
 import turtle
 
 
 class Base:
-    """Base class.
+    """Base model.
 
-    This is for base class.
+    This reps as "base" class to the other subclasses.
 
-    Private Attributes:
-        __nb_object (int): Private attribute.
+    Private Class Attributes:
+        __nb_object (int): instant class.
     """
 
-[2;2R[3;1R[>77;30603;0c]10;rgb:bfbf/bfbf/bfbf]11;rgb:0000/0000/0000    __nb_objects = 0
+    __nb_objects = 0
 
     def __init__(self, id=None):
-        """Init for this class.
+        """Initialize Base class.
 
         Args:
-            id (int): Id.
+            id (int): Id of the class.
         """
         if id is not None:
             self.id = id
@@ -31,10 +31,10 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Return Json from list dictionaries.
+        """Return JSON serialization from the dictioneries.
 
         Args:
-            list_dictionaries (list): A list of dictionaries.
+            list_dictionaries (list): Dictionaries.
         """
         if list_dictionaries is None or list_dictionaries == []:
             return "[]"
@@ -42,10 +42,10 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Puts JSON representation to a file.
+        """Write JSON to a file.
 
         Args:
-            list_objs (list): list from inherited base.
+            list_objs (list): A list of dict.
         """
         filename = cls.__name__ + ".json"
         with open(filename, "w") as jsonfile:
@@ -57,12 +57,13 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """Return deserialization of the json file.
+        """Return deserialization of a JSON.
 
         Args:
-            json_string (str): Json.
+            json_string (str): A JSON.
         Returns:
-            empty list or python list represented by json_string.
+            Empty list.
+            Otherwise - List.
         """
         if json_string is None or json_string == "[]":
             return []
@@ -73,7 +74,7 @@ class Base:
         """Return class.
 
         Args:
-            **dictionary (dict): Key/value pairs of attributes to initialize.
+            **dictionary (dict): Key/value pairs.
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
@@ -85,7 +86,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Return list of classes.
+        """Return list of the classes.
 
         Reads from `<cls.__name__>.json`.
 
@@ -103,10 +104,10 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Write CSV serialization.
+        """Write CSV serialization to the file.
 
         Args:
-            list_objs (list): List of inherited Base instances.
+            list_objs (list): A list.
         """
         filename = cls.__name__ + ".csv"
         with open(filename, "w", newline="") as csvfile:
@@ -123,7 +124,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Return list of classes.
+        """Return the list of classes.
 
         Reads from `<cls.__name__>.csv`.
 
@@ -150,8 +151,8 @@ class Base:
         """Draw Rectangles and Squares.
 
         Args:
-            list_rectangles (list): A list of Rectangle.
-            list_squares (list): List of Square objects.
+            list_rectangles (list): List.
+            list_squares (list): List.
         """
         turt = turtle.Turtle()
         turt.screen.bgcolor("#b7312c")

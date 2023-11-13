@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 # test_rectangle.py
-# Brennan D Baraban <375@holbertonschool.com>
 """Defines unittests for models/rectangle.py.
 
 Unittest classes:
@@ -455,11 +454,11 @@ class TestRectangle_stdout(unittest.TestCase):
 
     @staticmethod
     def capture_stdout(rect, method):
-        """Capture text printed to stdout.
+        """Captures text printed to stdout.
 
         Args:
             rect (Rectangle): Rectangle.
-            method (str): method.
+            method (str): Method.
         Returns:
             The text printed to stdout by calling method on sq.
         """
