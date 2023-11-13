@@ -1,4 +1,3 @@
-square.py
 #!/usr/bin/python3
 """Represents a square of the class."""
 from models.rectangle import Rectangle

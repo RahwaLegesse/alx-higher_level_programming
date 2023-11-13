@@ -1,4 +1,3 @@
-base.py
 #!/usr/bin/python3
 
 """Represent for base class."""

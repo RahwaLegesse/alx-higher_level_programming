@@ -1,4 +1,3 @@
-rectangle.py
 #!/usr/bin/python3
 """Defines class of rectangle."""
 from models.base import Base
