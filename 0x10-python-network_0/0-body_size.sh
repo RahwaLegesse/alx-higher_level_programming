@@ -1,3 +1,3 @@
 #!/bin/bash
-# Get the byte size of the HTTP response header for a given URL.
-curl -s "$1" | wc -c
+# takes in a URL and displays all HTTP methods the server will accept
+curl -sI ALLOW $1 -L | grep "Allow" | cut -d " " -f2-
