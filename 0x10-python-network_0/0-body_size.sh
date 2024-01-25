@@ -1,3 +1,3 @@
 #!/bin/bash
-# takes in a URL and display in screen
-curl -sI ALLOW $1 -L | grep "Allow" | cut -d " " -f2-
+# script take and send url,
+curl -sI "$1" | grep -i Content-Length | cut -d " " -f 2
