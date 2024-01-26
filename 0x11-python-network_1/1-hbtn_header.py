@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-"""Displays the X-Request-Id header"""
+"""Takes in a URL, sends a request to the URL"""
+
 from sys import argv
 from urllib.request import Request, urlopen
 
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    req = Request(argv[1])
 
-    request = urllib.request.Request(url)
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("X-Request-Id"))
+    with urlopen(req) as res:
+        headers = res.info()
+        print(headers.get('X-Request-Id'))
