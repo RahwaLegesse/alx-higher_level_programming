@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""Python script that fetches url with out using urllib."""
+"""Fetches the URL:"""
 
 import requests
 
+
 if __name__ == "__main__":
-    content = requests.get("https://intranet.hbtn.io/status").text
-    print("Body response:")
-    print("\t- type: {}".format(type(content)))
-    print("\t- content: {}".format(content))
+    ask = requests.get('https://intranet.hbtn.io/status')
+
+    print('Body response:')
+    print('\t- type: {_type}'.format(_type=type(ask.text)))
+    print('\t- content: {_content}'.format(_content=ask.text))
