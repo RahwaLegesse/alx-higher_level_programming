@@ -1,13 +1,13 @@
-#!usr/bin/python3
-
-"""sends a request to the URL and displays the value of the X-Request-Id
-
-usage:./1-hbtn_header.py
-"""
-import sys
+#!/usr/bin/python3
+"Module that fetches status"
 import urllib.request
 
-if __name__ == __main__:
-    url = sys.argv[1]
-    with urllib.request.urlopen(request) as response:
-        print(dict(response.headers).get("x-Request-id"))
+
+if __name__ == "__main__":
+    url = "https://alx-intranet.hbtn.io/status"
+    with urllib.request.urlopen(url) as response:
+        res = response.read()
+        print('Body response:')
+        print('\t- type: {}'.format(type(res)))
+        print('\t- content: {}'.format(res))
+        print('\t- utf8 content: {}'.format(res.decode("utf-8")))
