@@ -1,12 +1,13 @@
-#! usr/bin/python3
-"""IT fetches the given Url"""
+#!/usr/bin/python3
+"""Fetche the url"""
 import urllib.request
 
-if __name__ = "__main__":
-    request = urllib.request.Request("https://alx-intranet.hbtn.io/status")
+
+if __name__ == "__main__":
+    request = urllib.request.Request("https://intranet.hbtn.io/status")
     with urllib.request.urlopen(request) as response:
-        body = response.read()
-        print("body response:")
-        print("\t- type: {}".format(type(body)))
-        print("\t- content: {}".format(type(boby)))
-        print("\t- utf8 content: {}".format(type(body.decode(utf8)))
+        byte = response.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(byte)))
+        print("\t- content: {}".format(byte))
+        print("\t- utf8 content: {}".format(byte.decode("utf-8")))
