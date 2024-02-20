@@ -5,10 +5,10 @@ request(process.argv[2], function (err, response, body) {
     const todos = JSON.parse(body);
     const completed = {};
     todos.forEach((todo) => {
-      if (todo.completed && completed[todo.userid] === undefined) {
-        completed[todo.userid] = 1;
+      if (todo.completed && completed[todo.userId] === undefined) {
+        completed[todo.userId] = 1;
       } else if (todo.completed) {
-        completed[todo.userid] += 1;
+        completed[todo.userId] += 1;
       }
     });
     console.log(completed);
